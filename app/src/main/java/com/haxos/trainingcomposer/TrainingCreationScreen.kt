@@ -14,12 +14,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.ramcosta.composedestinations.annotation.Destination
 
 @Destination
 @Composable
 fun TrainingCreationScreen(
-    viewModel: TrainingCreationViewModel
+    viewModel: TrainingCreationViewModel = hiltViewModel()
 ) {
     val exercises by viewModel.exercises.collectAsState()
     LazyColumn {
