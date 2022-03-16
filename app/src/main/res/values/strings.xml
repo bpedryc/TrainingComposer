@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TrainingComposer</string>
+    <string name="pushups">Push-ups</string>
+    <string name="dips">Dips</string>
+    <string name="pullups">Pull-ups</string>
+    <string name="squats">Squats</string>
 </resources>
