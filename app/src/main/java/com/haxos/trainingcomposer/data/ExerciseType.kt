@@ -1,4 +1,4 @@
-package com.haxos.trainingcomposer
+package com.haxos.trainingcomposer.data
 
 enum class ExerciseType {
     PUSHUPS,

@@ -1,4 +1,4 @@
-package com.haxos.trainingcomposer
+package com.haxos.trainingcomposer.ui.trainingcreation
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.lazy.LazyColumn
@@ -15,6 +15,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.haxos.trainingcomposer.R
+import com.haxos.trainingcomposer.data.Exercise
+import com.haxos.trainingcomposer.data.ExerciseType
 import com.ramcosta.composedestinations.annotation.Destination
 
 @Destination

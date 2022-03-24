@@ -1,6 +1,7 @@
-package com.haxos.trainingcomposer
+package com.haxos.trainingcomposer.ui.trainingcreation
 
 import androidx.lifecycle.ViewModel
+import com.haxos.trainingcomposer.data.Exercise
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
