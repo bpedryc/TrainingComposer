@@ -1,20 +1,38 @@
 package com.haxos.trainingcomposer.ui.trainingcreation
 
 import androidx.lifecycle.ViewModel
-import com.haxos.trainingcomposer.data.Exercise
+import androidx.lifecycle.viewModelScope
+import com.haxos.trainingcomposer.data.TrainingDataSource
+import com.haxos.trainingcomposer.data.entity.Training
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class TrainingCreationViewModel @Inject constructor() : ViewModel() {
+class TrainingCreationViewModel @Inject constructor(
+    trainingDataSource: TrainingDataSource
+) : ViewModel() {
 
-    private val _exercises = MutableStateFlow<List<Exercise>>(emptyList())
-    val exercises: StateFlow<List<Exercise>> = _exercises
+    private val _training = MutableStateFlow(Training.placeholder())
+    val training: StateFlow<Training> = _training
 
-    fun onDeleteExercise(exerciseId: Int) {
-        _exercises.value = _exercises.value.filter { it.id != exerciseId }
+    init {
+        viewModelScope.launch {
+            val training = trainingDataSource.getTraining(0)
+            _training.emit(training)
+        }
     }
 
+    fun onDeleteExercise(exerciseToDeleteId: Int) = viewModelScope.launch {
+        _training.update {
+            it.copy(
+                exercises = it.exercises.filterNot { exercise ->
+                    exercise.id == exerciseToDeleteId
+                }
+            )
+        }
+    }
 }

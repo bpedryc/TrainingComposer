@@ -22,8 +22,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.haxos.trainingcomposer.R
-import com.haxos.trainingcomposer.data.Exercise
-import com.haxos.trainingcomposer.data.ExerciseType
+import com.haxos.trainingcomposer.data.entity.Exercise
+import com.haxos.trainingcomposer.data.entity.ExerciseType
 import com.haxos.trainingcomposer.ui.theme.TrainingComposerTheme
 import com.ramcosta.composedestinations.annotation.Destination
 
@@ -32,9 +32,9 @@ import com.ramcosta.composedestinations.annotation.Destination
 fun TrainingCreationScreen(
     viewModel: TrainingCreationViewModel = hiltViewModel()
 ) {
-    val exercises by viewModel.exercises.collectAsState()
+    val trainingState by viewModel.training.collectAsState()
     ExerciseTable(
-        exercises = exercises,
+        exercises = trainingState.exercises,
         onDeleteExercise = { viewModel.onDeleteExercise(it) }
     )
 }

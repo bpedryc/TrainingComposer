@@ -1,4 +1,4 @@
-package com.haxos.trainingcomposer.data
+package com.haxos.trainingcomposer.data.entity
 
 data class Exercise(
     val id: Int,
