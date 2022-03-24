@@ -4,4 +4,7 @@
     <string name="dips">Dips</string>
     <string name="pullups">Pull-ups</string>
     <string name="squats">Squats</string>
+    <string name="exercise">Exercise</string>
+    <string name="reps">Reps</string>
+    <string name="sets">Sets</string>
 </resources>
