@@ -5,6 +5,7 @@ import com.haxos.trainingcomposer.data.TrainingDataSource
 import com.haxos.trainingcomposer.data.entity.Exercise
 import com.haxos.trainingcomposer.data.entity.ExerciseType
 import com.haxos.trainingcomposer.data.entity.Training
+import com.haxos.trainingcomposer.rules.MainCoroutineRule
 import com.haxos.trainingcomposer.ui.trainingcreation.TrainingCreationViewModel
 import io.mockk.coEvery
 import io.mockk.mockk

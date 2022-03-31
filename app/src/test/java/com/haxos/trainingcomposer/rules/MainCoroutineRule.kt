@@ -1,4 +1,4 @@
-package com.haxos.trainingcomposer
+package com.haxos.trainingcomposer.rules
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
