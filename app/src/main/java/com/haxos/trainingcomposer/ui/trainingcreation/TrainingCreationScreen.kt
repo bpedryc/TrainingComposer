@@ -12,6 +12,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.FitnessCenter
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -33,6 +34,9 @@ fun TrainingCreationScreen(
     viewModel: TrainingCreationViewModel = hiltViewModel()
 ) {
     val trainingState by viewModel.training.collectAsState()
+    LaunchedEffect(Unit) {
+        viewModel.loadTraining()
+    }
     ExerciseTable(
         exercises = trainingState.exercises,
         onDeleteExercise = { viewModel.onDeleteExercise(it) }

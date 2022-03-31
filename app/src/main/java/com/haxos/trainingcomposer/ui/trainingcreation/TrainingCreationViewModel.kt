@@ -13,17 +13,15 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TrainingCreationViewModel @Inject constructor(
-    trainingDataSource: TrainingDataSource
+    private val trainingDataSource: TrainingDataSource
 ) : ViewModel() {
 
     private val _training = MutableStateFlow(Training.placeholder())
     val training: StateFlow<Training> = _training
 
-    init {
-        viewModelScope.launch {
-            val training = trainingDataSource.getTraining(0)
-            _training.emit(training)
-        }
+    fun loadTraining() = viewModelScope.launch {
+        val training = trainingDataSource.getTraining(0)
+        _training.emit(training)
     }
 
     fun onDeleteExercise(exerciseToDeleteId: Int) = viewModelScope.launch {

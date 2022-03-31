@@ -6,7 +6,7 @@ import com.haxos.trainingcomposer.data.entity.Training
 import javax.inject.Inject
 
 class FakeTrainingDataSource @Inject constructor() : TrainingDataSource {
-    override fun getTraining(id: Int): Training {
+    override suspend fun getTraining(id: Int): Training {
         return Training(
             id = null,
             name = "Monday workout",
